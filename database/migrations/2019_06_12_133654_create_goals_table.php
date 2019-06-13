@@ -18,10 +18,12 @@ class CreateGoalsTable extends Migration
             $table->unsignedBigInteger('match_id')->index();
             $table->unsignedBigInteger('player_id')->index();
             $table->unsignedBigInteger('team_id')->index();
+            $table->unsignedBigInteger('against_id')->index();
             $table->unsignedInteger('scored_at');
             $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('player_id')->references('id')->on('players');
             $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreign('against_id')->references('id')->on('teams');
             $table->timestamps();
         });
     }
